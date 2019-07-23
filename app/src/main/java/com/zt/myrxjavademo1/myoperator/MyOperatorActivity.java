@@ -81,6 +81,14 @@ public class MyOperatorActivity extends AppCompatActivity {
                         return s + "third map thread is " + Thread.currentThread().getName() + "\n";
                     }
                 })
+                .observeOn(Schedulers.newThread())
+                .map(new Func1<String, String>() {
+                    @Override
+                    public String call(String s) {
+                        Log.d("tag", "forth map thread is " + Thread.currentThread().getName());
+                        return s + "third map thread is " + Thread.currentThread().getName() + "\n";
+                    }
+                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber() {
                     @Override
