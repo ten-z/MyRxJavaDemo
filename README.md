@@ -18,7 +18,7 @@ My RxJava demo with myOperator and Aspectj
 ### 2.代理
 静态代理和动态代理都可以实现向被代理类的方法添加代码的功能，但是问题是两种代理都要基于接口，也就是代理类和被代理类要实现相同接口。
 
-RxJava中目标类Observable没实现任何接口，故无法使用代理的思路解决。
+RxJava中目标类Observable没实现任何接口，当然也可以在自己定义的实现接口的类中使用反射，反射Observable中的方法，但是此思路过于复杂，暂不在考虑范围。
 
 ### 3.AspectJ实现代码注入
 
